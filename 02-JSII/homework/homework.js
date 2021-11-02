@@ -3,6 +3,8 @@
 function devolverUltimoElemento(array) {
   // Devuelve el último elemento de un array
   // Tu código:
+  //return array.pop(); 
+  return array[array.length - 1];
 
 }
 
@@ -10,6 +12,10 @@ function incrementarPorUno(array) {
   // "array" debe ser una arreglo de números enteros
   // Aumenta cada número por 1 y devuelve el array
   // Tu código:
+  for (let i = 0; i < array.length; i++) {
+    array[i] = array[i] + 1;  
+  }
+  return array;
 
 }
 
@@ -17,6 +23,10 @@ function agregarItemAlFinalDelArray(array, elemento) {
   // Añade el "elemento" al final del array
   // y devuelve el array
   // Tu código:
+  // array[array.length] = elemento
+  // return array;
+  array.push(elemento)
+  return array;
 
 }
 
@@ -26,57 +36,107 @@ function dePalabrasAFrase(palabras) {
   // con espacios entre cada palabra
   // Ejemplo: ['Hello', 'world!'] -> 'Hello world!'
   // Tu código:
-
+  var frase = palabras[0]
+  for (var i = 1; i < palabras.length; i++) {
+       frase = frase + " " + palabras[i] ;
+  }
+  return frase;
 }
 
 function arrayContiene(array, elemento) {
   // Comprueba si el elemento existe dentro de "array"
   // Devuelve "true" si está, o "false" si no está
   // Tu código:
-
+  for (var i = 0; i < array.length; i++) {
+    if (array[i] === elemento) {
+        return true;
+    }
+  }
+ return false;
 }
 
 function promedioResultadosTest(resultadosTest) {
   // "resultadosTest" debe ser un array de enteros
   // Itera (en un bucle) los elementos del array, calcula y devuelve el promedio de puntajes
   // Tu código:
-
+  var prom = 0;
+    for (var i = 0; i < resultadosTest.length; i++) {
+       prom = prom + resultadosTest[i];
+    }
+      return prom / resultadosTest.length; 
 }
 
 function numeroMasGrande(numeros) {
   // "numeros" debe ser un array de enteros
   // Devuelve el número más grande
   // Tu código:
-
+  var mayor = numeros[0];
+  for (var i = 1; i < numeros.length; i++) {
+    if (mayor < numeros[i]) {
+      mayor = numeros[i];
+    } 
+  }
+     return mayor;
 }
+  
+   
 
 function multiplicarArgumentos() {
   // Usa la palabra clave `arguments` para multiplicar todos los argumentos y devolver el producto
   // Si no se pasan argumentos devuelve 0. Si se pasa un argumento, simplemente devuélvelo
   // Tu código:
+  var multipl = 1;
+  if (arguments.length === 0) {
+    return 0;
+  }
+  for (var i = 0; i < arguments.length; i++) {
+     multipl = multipl * arguments[i]
+    }
+  return multipl;
 
 }
 
 function cuentoElementos(arreglo){
   // Realiza una función que retorne la cantidad de los elementos del arreglo que sean mayores a 18.
   // Tu código:
-
+  var cant = 0;
+  for (var i = 0; i < arreglo.length; i++) {
+    if (arreglo[i] > 18) {
+      cant = cant + 1;
+    }
+  }
+  return cant;
 }
 
 function todosIguales(arreglo) {
   // Escriba la función todosIguales, si todos los elementos de un arreglo son iguales
   // retornar true, caso contrario retornar false.
   // Tu código:
-  
-} 
+  for (var i = 0; i < arreglo.length; i++) {
+      if (arreglo[i] !== arreglo[i + 1]) {
+        return false
+      } 
+      else return true;
+    }
+  } 
 
 function mesesDelAño(array) {
   // Dado un array que contiene algunos meses del año desordenados, recorrer el array buscando los meses de 
   // "Enero", "Marzo" y "Noviembre", guardarlo en nuevo array y retornarlo.
   // Si alguno de los meses no está, devolver: "No se encontraron los meses pedidos"
   // Tu código:
-
+  
+  var meses = [];
+  for (var i = 0; i < array.length; i++) {
+    if (array[i] === 'Enero' || array[i] === 'Marzo' || array[i] === 'Noviembre') {
+      meses.push(array[i]);
+    }
+  }
+  if(meses.length < 3) return 'No se encontraron los meses pedidos';
+  return meses;
 }
+
+  
 
 function breakStatement(numero) {
   // Iterar en un bucle aumentando en 2 el numero recibido hasta un límite de 10 veces.
@@ -86,8 +146,21 @@ function breakStatement(numero) {
   // devolver: "Se interrumpió la ejecución"
   // Pista: usá el statement 'break'
   // Tu código:
+  var array = [];
+  var i = 0;
+  do {
+    array[i] = numero[i] + 2;
+   } while (i === 9 || array[i] !== i );
+   if ( array[i] === i ) {
+    return "Se interrumpió la ejecución";
+  }  
+    return array;
 
-}
+}  
+      
+    
+  
+
 
 function continueStatement(numero) {
   // Iterar en un bucle aumentando en 2 el numero recibido hasta un límite de 10 veces.
